@@ -1,0 +1,8 @@
+{
+  "name": "element-slider",
+  "private": true,
+  "main": "element-slider.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  }
+}

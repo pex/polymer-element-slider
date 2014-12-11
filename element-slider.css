@@ -1,0 +1,67 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:host {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.wrap {
+  width: 100%;
+  display: block;
+}
+
+.wrap::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+:host ::content > * {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  float: left;
+  -webkit-transition: 500ms opacity ease-in-out;
+  -moz-transition: 500ms opacity ease-in-out;
+  -ms-transition: 500ms opacity ease-in-out;
+  -o-transition: 500ms opacity ease-in-out;
+  transition: 500ms opacity ease-in-out;
+}
+
+:host ::content [active] {
+  position: static;
+  opacity: 1;
+}
+
+a {
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  top: 45%;
+  background-color: rgba(255,255,255,0.8);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a:hover {
+  background-color: white;
+}
+
+a.prev {
+  left: 0;
+}
+
+a.next {
+  right: 0;
+}

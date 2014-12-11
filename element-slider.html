@@ -1,0 +1,12 @@
+<link rel="import" href="../polymer/polymer.html">
+<polymer-element name="element-slider" unresolved layout horizontal>
+  <template>
+    <link rel="stylesheet" href="element-slider.css">
+    <div class="wrap" on-touchstart="{{initTouch}}" on-touchmove="{{touchMove}}">
+      <content></content>
+    </div>
+    <a class="next" on-tap="{{next}}">></a>
+    <a class="prev" on-tap="{{prev}}"><</a>
+  </template>
+  <script src="element-slider.js"></script>
+</polymer-element>
