@@ -1,6 +1,6 @@
 {
   "name": "element-slider",
-  "private": true,
+  "version": "0.1.0",
   "main": "element-slider.html",
   "dependencies": {
     "polymer": "Polymer/polymer#master"
