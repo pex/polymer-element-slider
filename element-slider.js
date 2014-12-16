@@ -15,13 +15,11 @@ Polymer('element-slider', {
   },
 
   next: function() {
-    console.log('next');
     this.counter++;
     this.showCurrent();
   },
 
   prev: function() {
-    console.log('prev');
     this.counter--;
     this.showCurrent();
   },
