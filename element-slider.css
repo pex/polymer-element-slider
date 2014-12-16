@@ -23,7 +23,7 @@
   clear: both;
 }
 
-:host ::content > * {
+:host ::content .element-slider--slide {
   position: absolute;
   left: 0;
   opacity: 0;

@@ -3,7 +3,10 @@ Polymer('element-slider', {
   touchDown: null,
 
   domReady: function() {
-    this.children[0].setAttribute('active', '')
+    this.children[0].setAttribute('active', '');
+    this.eachSlide(function(slide) {
+      slide.className += ' element-slider--slide';
+    });
   },
 
   showCurrent: function() {
