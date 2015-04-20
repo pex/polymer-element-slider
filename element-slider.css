@@ -34,11 +34,12 @@
   -ms-transition: 500ms opacity ease-in-out;
   -o-transition: 500ms opacity ease-in-out;
   transition: 500ms opacity ease-in-out;
+  display: none;
 }
-
 :host ::content [active] {
   position: static;
   opacity: 1;
+  display: block;
 }
 
 a {
