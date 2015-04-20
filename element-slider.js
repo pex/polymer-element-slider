@@ -23,6 +23,10 @@ Polymer('element-slider', {
   },
 
   prev: function() {
+    var arrayLength = this.children.length;
+    if(this.counter <= 0){
+        this.counter = arrayLength;
+    }
     this.counter--;
     this.showCurrent();
   },
