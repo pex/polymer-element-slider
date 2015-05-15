@@ -1,8 +1,9 @@
 {
   "name": "element-slider",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "element-slider.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#master"
+    "polymer": "Polymer/polymer#^0.9.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.6.0"
   }
 }

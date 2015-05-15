@@ -1,57 +1,58 @@
-Polymer('element-slider', {
+Polymer({
+  is: 'element-slider',
   counter: 0,
+  position: 1,
   touchDown: null,
-
-  domReady: function() {
-    this.children[0].setAttribute('active', '');
+  listeners:{
+    'next.tap':'next', 
+    'prev.tap':'prev', 
+  },
+  
+  ready: function() {
+    this.$.wrap.children[0].setAttribute('active', '');
     this.eachSlide(function(slide) {
       slide.className += ' element-slider--slide';
     });
+    this.showSlidePosition();
   },
 
   showCurrent: function() {
-    var item = Math.abs(this.counter % this.children.length);
+    var item = Math.abs(this.counter % this.$.wrap.children.length);
     this.eachSlide(function(slide) {
-      slide.removeAttribute('active');
+        slide.removeAttribute('active');
     });
-    this.children[item].setAttribute('active', '');
+    this.$.wrap.children[item].setAttribute('active', '');
   },
 
   next: function() {
     this.counter++;
+    this.position++;
     this.showCurrent();
+    this.showSlidePosition();
   },
 
   prev: function() {
+    var arrayLength = this.$.wrap.children.length;
+    if(this.counter <= 0){
+        this.counter = arrayLength;
+    }
     this.counter--;
+    this.position--;
     this.showCurrent();
-  },
-
-  initTouch: function(evnt) {
-    this.touchDown = evnt.touches[0];
-  },
-
-  touchMove: function(evnt) {
-    if (!this.touchDown) return;
-
-    var touchDown = this.touchDown,
-    touchUp = evnt.touches[0];
-
-    var diff = {
-      x: touchDown.clientX - touchUp.clientX,
-      y: touchDown.clientY - touchUp.clientY
-    }
-
-    // We're only tracking left/right swiping.
-    if (Math.abs(diff.x) > Math.abs(diff.y)) {
-      if (diff.x > 0) this.next();
-      else this.prev();
-    }
-
-    this.touchDown = null;
+    this.showSlidePosition();
   },
 
   eachSlide: function(callback) {
-    [].forEach.call(this.children, callback);
+    [].forEach.call(this.$.wrap.children, callback);
+  },
+
+  showSlidePosition: function(){
+    if(this.position == 0){
+        this.position = this.$.wrap.children.length;
+    }
+    else if(this.position > this.$.wrap.children.length){
+        this.position = 1;
+    }
+    this.$.counter.innerHTML = this.position + '/' + this.$.wrap.children.length;
   }
 });
