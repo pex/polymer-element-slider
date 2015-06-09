@@ -36,9 +36,14 @@
   transition: 500ms opacity ease-in-out;
 }
 
+:host ::content .element-slider--slide img{
+  width: 100%;
+}
+
 :host ::content [active] {
   position: static;
   opacity: 1;
+  display: block;
 }
 
 a {
@@ -58,10 +63,10 @@ a:hover {
   background-color: white;
 }
 
-a.prev {
+a#prev {
   left: 0;
 }
 
-a.next {
+a#next {
   right: 0;
 }
